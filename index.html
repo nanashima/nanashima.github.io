@@ -1,76 +1,214 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Mikito's Homepage</title>
-<meta name="google-site-verification" content="FvdsJlxUJ09FeXnKyhrWebeomw8ClAftyYLVaqKYMaU" />
- <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Mikito's Homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #261E47; /* Unchanged main color */
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* 目次スタイル */
+        #toc {
+            background-color: #CB1B45; /* Unchanged accent color */
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        #toc li {
+            margin: 0 10px;
+        }
+
+        #toc a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        #toc a:hover {
+            color: #ddd;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        a {
+            color: #CB1B45; /* Unchanged accent color */
+            text-decoration: none;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+
+        a:hover {
+            color: #261E47; /* Darker color on hover */
+            text-decoration: underline;
+        }
+
+        .section {
+            background-color: #fff;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #261E47;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            background-color: #261E47; /* Unchanged main color */
+            color: #fff;
+            padding: 10px;
+            margin: -20px -20px 20px -20px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        footer {
+            background-color: #261E47; /* Unchanged main color */
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .section {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            #toc ul {
+                flex-direction: column;
+            }
+
+            #toc li {
+                margin: 5px 0;
+            }
+        }
+    </style>
 </head>
 <body>
-	<basefont size="16">
-  <h1>Mikito Nanashima / 七島 幹人 </h1>
-  <p>last update: 2023.12.9</p>
-	<h3>Welcome to my homepage!</h3>
-	<p>I'm an assistant professor  of the School of Computing at Tokyo Institute of Technology in Japan.</p>
-	<p>I received Ph.D. under the supervision of Prof. Toshiya Itoh. I had also been advised by Prof. Osamu Watanabe during my undergraduate.<br>
-	I was visiting Simons institute <a href="https://simons.berkeley.edu/programs/Meta-Complexity2023">Meta-Complexity program</a> as a visiting student on Feb. and Mar. 2023.</p>
-	<p>e-mail: nanashima at c dot titech dot ac dot jp (replace dot and at properly)</p>
-	<p>To be honest, I'm not confident in my English skills. 
-	If you see me at some international conference, please go easy on me🙇</p>
-<h2>Research Interests</h2>
-	<ul>
-	<li><strong>theoretical computer science</strong></li>
-	<li><strong>computational learning</strong>, <strong>computational complexity</strong>, <strong>cryptography</strong>, and <strong>proof complexity</strong> </li>
-	<li>connections among the above and proof tools to bridge them: for example, <strong>reductions</strong></li>
-	<li>a complexity theoretic view of <strong>information</strong></li>
-	</ul>
+    <header>
+        <h1>Mikito Nanashima / 七島 幹人</h1>
+        <p>Last Update: 2024.1.24</p>
+        <h3>Welcome to My Homepage!</h3>
+        <!-- 目次 -->
+        <div id="toc">
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#research">Research Interests</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#projects">Fellowships and Projects</a></li>
+                <li><a href="#teaching">Teaching Experience</a></li>
+                <li><a href="#activities">Other Activities</a></li>
+            </ul>
+        </div>
+    </header>
 
-<h2>Publications</h2>
-link: <a href="https://dblp.org/pers/hd/n/Nanashima:Mikito">[dblp]</a>
-	<p>[10] S. Hirahara and <u>M. Nanashima</u>, Learning in Pessiland via Inductive Inference, in FOCS2023 <a href="https://eccc.weizmann.ac.il/report/2023/100/">[full]</a>.</p>
-	<p>[9] S. Hirahara, R. Ilango, Z. Lu, <u>M. Nanashima</u>, and I. C. Oliveira, A Duality Between One-Way Functions and Average-Case Symmetry of Information, in STOC2023 <a href="https://eccc.weizmann.ac.il/report/2023/035/">[full]</a>.</p>
-	<p>[8] S. Hirahara and <u>M. Nanashima</u>, Learning versus Pseudorandom Generators in Constant Parallel Time, in ITCS2023 <a href="https://eccc.weizmann.ac.il/report/2022/164/">[full]</a>.</p>
-	<p>[7] S. Hirahara and <u>M. Nanashima</u>,  Finding Errorless Pessiland in Error-Prone Heuristica, in CCC2022<a href="https://drops.dagstuhl.de/opus/volltexte/2022/16587/pdf/LIPIcs-CCC-2022-25.pdf">[paper]</a>.</p>
-	<p>[6] S. Hirahara and <u>M. Nanashima</u>, On Worst-Case Learning in Relativized Heuristica, in FOCS2021 <a href="https://eccc.weizmann.ac.il/report/2021/161/">[full]</a>.</p>
-	<p>[5] <u>M. Nanashima</u>, A Theory of Heuristic Learnability, in COLT2021<a href="http://proceedings.mlr.press/v134/nanashima21a/nanashima21a.pdf">[paper]</a>.</p>
-	<p>[4] <u>M. Nanashima</u>, On Basing Auxiliary-Input Cryptography on NP-hardness via Nonadaptive Black-Box Reductions, in ITCS2021 <a href="https://drops.dagstuhl.de/opus/volltexte/2021/13568/">[paper]</a> <a href="https://eccc.weizmann.ac.il/report/2020/095/">[full]</a>.</p>
-	<p>[3] <u>M. Nanashima</u>, Extending Learnability to Auxiliary-Input Cryptographic Primitives and Meta-PAC Learning, in COLT2020<a href="http://proceedings.mlr.press/v125/nanashima20a.html">[paper]</a>. </p>
-	<p>[2] <u>M. Nanashima</u>, A Non-Trivial Algorithm Enumerating Relevant Features over Finite Fields, in ALT2020<a href="http://proceedings.mlr.press/v117/nanashima20a.html">[paper]</a>. (M.Sc. thesis)</p>
-	<p>[1] <u>M. Nanashima</u>, Cryptographic Limitations on Polynomial-Time a Posteriori Query Learning, in IWOCA2018<a href="https://link.springer.com/chapter/10.1007/978-3-319-94667-2_24">[paper]</a>. (B.Sc. thesis)</p>
+    <!-- About Me セクション -->
+	<section id="about" class="section">
+		<h2>About Me</h2>
+		<p>I'm an assistant professor of the School of Computing at Tokyo Institute of Technology in Japan.</p>
+		<p>I received Ph.D. under the supervision of Prof. Toshiya Itoh. I had also been advised by Prof. Osamu Watanabe during my undergraduate.<br>
+			I was visiting Simons institute <a href="https://simons.berkeley.edu/programs/Meta-Complexity2023">Meta-Complexity program</a> as a visiting student on Feb. and Mar. 2023.</p>
+		<p>e-mail: nanashima at c dot titech dot ac dot jp (replace dot and at properly)</p>
+		<p>To be honest, I'm not confident in my English skills. If you see me at some international conference, please go easy on me🙇</p>
+	</section>
 
-<h2>Fellowships and Projects</h2>
-<h3> Principal Investigator</h3>
-	<p>2023.9 - 2025.3 JSPS Grant-in-Aid for Research Activity Start-up, A Study on Breaking and Avoiding Relativization Barriers against Constructing One-Way Functions.</p>
-	<p>2019.9 - 2022.3 JST ACT-X Math. and Info., Research on Difficulty of Proving Efficient Learnability.</p>
-	<p>2020.4 - 2021.3 Tokyo Tech Tsubame Scholarship for Doctoral Students.</p>
-	<p>2021.4 - 2023.3 JSPS Research Fellowship for Young Scientists (DC2).</p>
-<h3> Co-Investigator</h3>
-<p>2023.4 - Now JSPS Grant-in-Aid for Scientific Research (A), Theoretical Foundations of Resource-Bounded Quantum Computation.</p>	
-
-	<h3>Prize</h3>
-	<p>The 13th JSPS Ikushi Prize<a href="https://www.jsps.go.jp/english/e-ikushi-prize/index.html">[link]</a>.</p>
-
-<h2>Teaching Experience</h2>
-<h3>Instructor</h3>
-	<p>2023, Programming I (Exercise Part), 3Q.</p>	
-<h3>TA</h3>
-	<p>2022, Teaching Assistant, Introduction to Algorithms and Data Structures, 2Q.</p>
-	<p>2019, Teaching Assistant, Introduction to Algorithms and Data Structures, 2Q.</p>
-	<p>2019, Teaching Assistant, Information Literacy I, 1Q.</p>
-	<p>2018, Teaching Assistant, Programming I, 3Q.</p>
-	<p>2018, Teaching Assistant, Introduction to Algorithms and Data Structures, 2Q.</p>
-	<p>2018, Teaching Assistant, Information Literacy I, II, 1-2Q.</p>
-
-<h2>Other Activities</h2>
-	<h3>Talks (except for invited talks on the aforementioned papers)</h3>
-	<p>Math on Difficulties of Computation (in Japanese) @ Tokyo Tech Open Campus, 2023, August<a href="https://youtu.be/FGy8qAXNkqk?si=joSo3gTnDuMPT0pS">[recorded video]</a>. (this is aimed at high school students in Japan)</p>
-	<p>Kolmogorov Complexity and its Algorithmic and Cryptographic Benefits (invited, in Japanese), in Workshop on Mathematics of Next-Generation Cryptography for Secure Utilization of Quantum Information @ Kuyshu Univ. (hybrid), 2022, August.</p>
-	<p>Hardness of Learning, Auxiliary-Input Cryptography, and Meta-Complexity (in Japanese), in the seminar for International Research Unit of Quantum Information @ Kyoto Univ. (zoom), 2021, July.</p>
-		<p>A Story of Computation, Cryptography, and the Gaps (in Japanese), in the course of ''Literacy of Computing'' @ Tokyo Tech., 2020, 2021.</p>
-	<h3>External Reviews</h3>
-	<p>Conferences: RANDOM2021, STACS2022, CSR2022, CCC2022, ISAAC2022, STOC2023, CCC2023, FOCS2023, and more...</p>
-	<p>Journal: Computational Complexity</p>
-
-
+    <!-- Research Interests セクション -->
+    <section id="research" class="section">
+        <h2>Research Interests</h2>
+        <ul>
+            <li><strong>theoretical computer science</strong></li>
+            <li><strong>computational learning</strong>, <strong>computational complexity</strong>, <strong>cryptography</strong>, and <strong>proof complexity</strong> </li>
+            <li>connections among the above and proof tools to bridge them: for example, <strong>reductions</strong></li>
+            <li>a complexity theoretic view of <strong>information</strong></li>
+        </ul>
+    </section>
+    
+    <!-- Publications セクション -->
+    <section id="publications" class="section">
+        <h2>Publications</h2>
+		<p>Link: <a href="https://dblp.org/pers/hd/n/Nanashima:Mikito">[dblp]</a></p>
+		<p>[10] S. Hirahara and <u>M. Nanashima</u>, Learning in Pessiland via Inductive Inference, in FOCS2023 <a href="https://eccc.weizmann.ac.il/report/2023/100/">[full]</a>.</p>
+		<p>[9] S. Hirahara, R. Ilango, Z. Lu, <u>M. Nanashima</u>, and I. C. Oliveira, A Duality Between One-Way Functions and Average-Case Symmetry of Information, in STOC2023 <a href="https://eccc.weizmann.ac.il/report/2023/035/">[full]</a>.</p>
+		<p>[8] S. Hirahara and <u>M. Nanashima</u>, Learning versus Pseudorandom Generators in Constant Parallel Time, in ITCS2023 <a href="https://eccc.weizmann.ac.il/report/2022/164/">[full]</a>.</p>
+		<p>[7] S. Hirahara and <u>M. Nanashima</u>,  Finding Errorless Pessiland in Error-Prone Heuristica, in CCC2022<a href="https://drops.dagstuhl.de/opus/volltexte/2022/16587/pdf/LIPIcs-CCC-2022-25.pdf">[paper]</a>.</p>
+		<p>[6] S. Hirahara and <u>M. Nanashima</u>, On Worst-Case Learning in Relativized Heuristica, in FOCS2021 <a href="https://eccc.weizmann.ac.il/report/2021/161/">[full]</a>.</p>
+		<p>[5] <u>M. Nanashima</u>, A Theory of Heuristic Learnability, in COLT2021<a href="http://proceedings.mlr.press/v134/nanashima21a/nanashima21a.pdf">[paper]</a>.</p>
+		<p>[4] <u>M. Nanashima</u>, On Basing Auxiliary-Input Cryptography on NP-hardness via Nonadaptive Black-Box Reductions, in ITCS2021 <a href="https://drops.dagstuhl.de/opus/volltexte/2021/13568/">[paper]</a> <a href="https://eccc.weizmann.ac.il/report/2020/095/">[full]</a>.</p>
+		<p>[3] <u>M. Nanashima</u>, Extending Learnability to Auxiliary-Input Cryptographic Primitives and Meta-PAC Learning, in COLT2020<a href="http://proceedings.mlr.press/v125/nanashima20a.html">[paper]</a>. </p>
+		<p>[2] <u>M. Nanashima</u>, A Non-Trivial Algorithm Enumerating Relevant Features over Finite Fields, in ALT2020<a href="http://proceedings.mlr.press/v117/nanashima20a.html">[paper]</a>. (M.Sc. thesis)</p>
+		<p>[1] <u>M. Nanashima</u>, Cryptographic Limitations on Polynomial-Time a Posteriori Query Learning, in IWOCA2018<a href="https://link.springer.com/chapter/10.1007/978-3-319-94667-2_24">[paper]</a>. (B.Sc. thesis)</p>
+    </section>
+    
+    <!-- Fellowships and Projects セクション -->
+    <section id="projects" class="section">
+        <h2>Fellowships and Projects</h2>
+		<h3> Principal Investigator</h3>
+		<p>2023.9 - 2025.3 JSPS Grant-in-Aid for Research Activity Start-up, A Study on Breaking and Avoiding Relativization Barriers against Constructing One-Way Functions.</p>
+		<p>2019.9 - 2022.3 JST ACT-X Math. and Info., Research on Difficulty of Proving Efficient Learnability.</p>
+		<p>2020.4 - 2021.3 Tokyo Tech Tsubame Scholarship for Doctoral Students.</p>
+		<p>2021.4 - 2023.3 JSPS Research Fellowship for Young Scientists (DC2).</p>
+		<h3> Co-Investigator</h3>
+		<p>2023.4 - Now JSPS Grant-in-Aid for Scientific Research (A), Theoretical Foundations of Resource-Bounded Quantum Computation.</p>	
+  
+		<h3>Prize</h3>
+		<p>The 13th JSPS Ikushi Prize<a href="https://www.jsps.go.jp/english/e-ikushi-prize/index.html">[link]</a>.</p>
+	</section>
+    
+    <!-- Teaching Experience セクション -->
+    <section id="teaching" class="section">
+        <h2>Teaching Experience</h2>
+        <!-- 以降のコンテンツ... -->
+		<h3>Instructor</h3>
+		<p>2023, Programming I (Exercise Part), 3Q.</p>	
+	<h3>TA</h3>
+		<p>2022, Teaching Assistant, Introduction to Algorithms and Data Structures, 2Q.</p>
+		<p>2019, Teaching Assistant, Introduction to Algorithms and Data Structures, 2Q.</p>
+		<p>2019, Teaching Assistant, Information Literacy I, 1Q.</p>
+		<p>2018, Teaching Assistant, Programming I, 3Q.</p>
+		<p>2018, Teaching Assistant, Introduction to Algorithms and Data Structures, 2Q.</p>
+		<p>2018, Teaching Assistant, Information Literacy I, II, 1-2Q.</p>
+    </section>
+    
+    <!-- Other Activities セクション -->
+    <section id="activities" class="section">
+        <h2>Other Activities</h2>
+		<h3>Talks (except for invited talks on the aforementioned papers)</h3>
+		<p>Math on Difficulties of Computation (in Japanese) @ Tokyo Tech Open Campus, 2023, August<a href="https://youtu.be/FGy8qAXNkqk?si=joSo3gTnDuMPT0pS">[recorded video]</a>. (this is aimed at high school students in Japan)</p>
+		<p>Kolmogorov Complexity and its Algorithmic and Cryptographic Benefits (invited, in Japanese), in Workshop on Mathematics of Next-Generation Cryptography for Secure Utilization of Quantum Information @ Kuyshu Univ. (hybrid), 2022, August.</p>
+		<p>Hardness of Learning, Auxiliary-Input Cryptography, and Meta-Complexity (in Japanese), in the seminar for International Research Unit of Quantum Information @ Kyoto Univ. (zoom), 2021, July.</p>
+			<p>A Story of Computation, Cryptography, and the Gaps (in Japanese), in the course of ''Literacy of Computing'' @ Tokyo Tech., 2020, 2021.</p>
+		<h3>External Reviews</h3>
+		<p>Conferences: RANDOM2021, STACS2022, CSR2022, CCC2022, ISAAC2022, STOC2023, CCC2023, FOCS2023, and more...</p>
+		<p>Journal: Computational Complexity, SICOMP</p>
+    </section>
+    
+    <!-- フッター -->
+    <footer>
+        <p>The code was produced by ChatGPT.</p>
+    </footer>
 </body>
 </html>
