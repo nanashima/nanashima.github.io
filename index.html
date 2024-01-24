@@ -4,8 +4,64 @@
     <meta charset="UTF-8">
     <title>Mikito's Homepage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet"> <!-- タイプライターフォント -->
     <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier Prime', monospace;
+            overflow: hidden; /* 初期状態ではスクロールを無効にする */
+        }
+
+        #splash-screen {
+            background-color: #261E47;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 1s ease;
+        }
+
+        .typewriter h1 {
+            overflow: hidden; /* 文字が表示されるようにする */
+            border-right: .15em solid #fff; /* カーソルのように見せる */
+            white-space: nowrap; /* ラップを防ぐ */
+            margin: 0 auto; /* 中央揃え */
+            letter-spacing: .15em; /* 文字間隔 */
+            animation: 
+              typing 3.5s steps(31, end),
+              blink-caret .75s step-end infinite;
+        }
+
+        /* タイプライターのアニメーション */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        /* カーソル点滅アニメーション */
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #fff; }
+        }
+
+        #main-content {
+            opacity: 0;
+            transition: opacity 1s ease;
+            display: none;
+            position: absolute; /* メインコンテンツの位置を絶対位置に設定 */
+            top: 0; /* トップに配置 */
+            width: 100%; /* 幅を100%に設定 */
+        }
+
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #f0f0f0;
@@ -138,11 +194,17 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>Mikito Nanashima</h1>
-        <p>Last Update: 2024.1.24</p>
-        <h3>Welcome to My Homepage!</h3>
-        <!-- 目次 -->
+    <!-- スプラッシュスクリーン -->
+    <div id="splash-screen"  class="typewriter">
+        <h1>Welcome to My Homepage!</h1>
+    </div>
+
+     <!-- メインコンテンツ -->
+     <div id="main-content">
+        <header>
+            <h1>Mikito's Homepage</h1>
+            <p>Last Update: 2024.1.24</p>
+            <!-- 目次 -->
         <div id="toc">
             <ul>
                 <li><a href="#about">About Me</a></li>
@@ -241,5 +303,22 @@
     <footer>
         <p>The code was produced by ChatGPT.</p>
     </footer>
+</div>
+<script>
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            var splashScreen = document.getElementById('splash-screen');
+            var mainContent = document.getElementById('main-content');
+            splashScreen.style.opacity = '0';
+            mainContent.style.display = 'block';
+            setTimeout(function() {
+                splashScreen.style.display = 'none';
+                mainContent.style.opacity = '1';
+                document.body.style.overflow = 'auto'; // スプラッシュスクリーンが終了したらスクロールを許可
+                document.documentElement.style.overflow = 'auto'; // html要素のスクロールも許可
+            }, 1000);
+        }, 1500);
+    });
+</script>
 </body>
 </html>
