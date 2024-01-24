@@ -41,6 +41,13 @@
               blink-caret .75s step-end infinite;
         }
 
+        @media screen and (max-width: 600px) {
+            .typewriter h1 {
+                /* モバイルデバイスでのアニメーション持続時間を短縮 */
+                animation: typing 2s steps(23, end), blink-caret .75s step-end infinite;
+            }
+        }
+
         /* タイプライターのアニメーション */
         @keyframes typing {
             from { width: 0 }
