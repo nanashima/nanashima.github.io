@@ -65,6 +65,20 @@
             color: #c19a6b;
         }
 
+        .menu-toggle {
+            display: none;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 1.5em;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+        }
+
         .container {
             width: 80%;
             margin: 40px auto;
@@ -115,22 +129,16 @@
                 display: none;
             }
 
+            nav ul.active {
+                display: flex;
+            }
+
             nav ul li {
                 margin: 10px 0;
             }
 
             .menu-toggle {
                 display: block;
-                position: absolute;
-                top: 10px;
-                right: 20px;
-                cursor: pointer;
-                color: #fff;
-                font-size: 1.5em;
-            }
-
-            .menu-toggle.active + ul {
-                display: flex;
             }
 
             .container {
@@ -142,7 +150,7 @@
 <body>
     <header>
         <h1>Mikito Nanashima</h1>
-        <p>Last Update: 2024.4.7</p>
+        <p>Last Update: 2024.6.6</p>
     </header>
 
     <nav>
@@ -188,7 +196,7 @@
             <p>[7] S. Hirahara and <u>M. Nanashima</u>, Finding Errorless Pessiland in Error-Prone Heuristica, in CCC2022<a href="https://drops.dagstuhl.de/opus/volltexte/2022/16587/pdf/LIPIcs-CCC-2022-25.pdf">[paper]</a>.</p>
             <p>[6] S. Hirahara and <u>M. Nanashima</u>, On Worst-Case Learning in Relativized Heuristica, in FOCS2021 <a href="https://eccc.weizmann.ac.il/report/2021/161/">[full]</a>.</p>
             <p>[5] <u>M. Nanashima</u>, A Theory of Heuristic Learnability, in COLT2021<a href="http://proceedings.mlr.press/v134/nanashima21a/nanashima21a.pdf">[paper]</a>.</p>
-            <p>[4] <u>M. Nanashima</u>, On Basing Auxiliary-Input Cryptography on NP-hardness via Nonadaptive Black-Box Reductions, in ITCS2021 <a href="https://drops.dagstuhl.de/opus/volltexte/2021/13568/">[paper]</a> <a href="https://eccc.weizmann.ac.il/report/2020/095/">[full]</a>.</p>
+            <p>[4] <u>M. Nanashima</u>, Auxiliary-Input Cryptography on NP-hardness via Nonadaptive Black-Box Reductions, in ITCS2021 <a href="https://drops.dagstuhl.de/opus/volltexte/2021/13568/">[paper]</a> <a href="https://eccc.weizmann.ac.il/report/2020/095/">[full]</a>.</p>
             <p>[3] <u>M. Nanashima</u>, Extending Learnability to Auxiliary-Input Cryptographic Primitives and Meta-PAC Learning, in COLT2020<a href="http://proceedings.mlr.press/v125/nanashima20a.html">[paper]</a>.</p>
             <p>[2] <u>M. Nanashima</u>, A Non-Trivial Algorithm Enumerating Relevant Features over Finite Fields, in ALT2020<a href="http://proceedings.mlr.press/v117/nanashima20a.html">[paper]</a>. (M.Sc. thesis)</p>
             <p>[1] <u>M. Nanashima</u>, Cryptographic Limitations on Polynomial-Time a Posteriori Query Learning, in IWOCA2018<a href="https://link.springer.com/chapter/10.1007/978-3-319-94667-2_24">[paper]</a>. (B.Sc. thesis)</p>
