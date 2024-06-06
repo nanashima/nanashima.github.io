@@ -1,214 +1,162 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mikito's Homepage</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body, html {
             margin: 0;
             padding: 0;
-            font-family: 'Roboto', sans-serif;
-            background-color: #f8f9fa;
-            color: #343a40;
-            overflow: hidden;
-        }
-
-        #splash-screen {
-            background-color: #343a40;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            height: 100%;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 9999;
-            opacity: 1;
-            transition: opacity 1s ease;
-        }
-
-        .typewriter h1 {
-            overflow: hidden;
-            border-right: .15em solid #fff;
-            white-space: nowrap;
-            margin: 0 auto;
-            letter-spacing: .15em;
-            animation: 
-              typing 3.5s steps(23, end),
-              blink-caret .75s step-end infinite;
-        }
-
-        @media screen and (max-width: 600px) {
-            .typewriter h1 {
-                animation: typing 2s steps(23, end), blink-caret .75s step-end infinite;
-            }
-        }
-
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #fff; }
-        }
-
-        #main-content {
-            opacity: 0;
-            transition: opacity 1s ease;
-            display: none;
-            position: absolute;
-            top: 0;
-            width: 100%;
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            background-image: url('https://www.transparenttextures.com/patterns/connected.png');
         }
 
         header {
-            background-color: #343a40;
+            background-color: #2d2d2d;
             color: #fff;
             text-align: center;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
+            padding: 40px 20px;
+            border-bottom: 5px solid #c19a6b;
+            background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
         }
 
         header h1 {
-            font-size: 2.5em;
+            font-family: 'Kaisei Opti', serif;
+            font-size: 3em;
             margin: 0;
         }
 
         header p {
-            font-size: 1em;
-            margin: 0;
+            font-size: 1.2em;
+            margin: 5px 0 0;
         }
 
-        #toc {
-            background-color: #343a40;
-            color: #fff;
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        nav {
+            background-color: #333;
+            padding: 10px 0;
+            background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
         }
 
-        #toc ul {
+        nav ul {
             list-style: none;
             padding: 0;
             margin: 0;
             display: flex;
+            justify-content: center;
         }
 
-        #toc li {
-            margin: 0 10px;
+        nav ul li {
+            margin: 0 15px;
         }
 
-        #toc a {
+        nav ul li a {
             color: #fff;
             text-decoration: none;
-            font-size: 16px;
             font-weight: bold;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
+            transition: color 0.3s;
         }
 
-        #toc a:hover {
-            color: #ddd;
-            text-shadow: 1px 1px 2px #000;
+        nav ul li a:hover {
+            color: #c19a6b;
         }
 
-        a {
-            color: #007bff;
-            text-decoration: none;
-            transition: color 0.3s ease, text-decoration 0.3s ease;
-        }
-
-        a:hover {
-            color: #0056b3;
-            text-decoration: underline;
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            padding: 20px;
         }
 
         .section {
             background-color: #fff;
-            margin: 20px;
+            margin: 20px 0;
             padding: 20px;
-            border-radius: 10px;
+            border-left: 5px solid #c19a6b;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .section h2 {
-            background-color: #343a40;
-            color: #fff;
-            padding: 10px;
-            margin: -20px -20px 20px -20px;
-            border-radius: 10px 10px 0 0;
+            font-family: 'Kaisei Opti', serif;
+            color: #c19a6b;
+            border-bottom: 2px solid #c19a6b;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
         }
 
         footer {
-            background-color: #343a40;
+            background-color: #2d2d2d;
             color: #fff;
             text-align: center;
-            padding: 10px;
+            padding: 20px;
             margin-top: 20px;
+            border-top: 5px solid #c19a6b;
+            background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
         }
 
-        @media (max-width: 600px) {
-            .section {
-                margin: 10px;
-                padding: 15px;
+        a {
+            color: #c19a6b;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #a37052;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
             }
 
-            #toc ul {
+            nav ul {
                 flex-direction: column;
             }
 
-            #toc li {
-                margin: 5px 0;
+            nav ul li {
+                margin: 10px 0;
             }
         }
     </style>
 </head>
 <body>
-    <div id="splash-screen" class="typewriter">
-        <h1>Welcome to My Homepage!</h1>
-    </div>
+    <header>
+        <h1>Mikito Nanashima</h1>
+        <p>Last Update: 2024.6.6</p>
+    </header>
 
-    <div id="main-content">
-        <header>
-            <h1>Mikito Nanashima</h1>
-            <p>Last Update: 2024.4.7</p>
-            <div id="toc">
-                <ul>
-                    <li><a href="#about">About Me</a></li>
-                    <li><a href="#research">Research Interests</a></li>
-                    <li><a href="#publications">Publications</a></li>
-                    <li><a href="#projects">Fellowships and Projects</a></li>
-                    <li><a href="#teaching">Teaching Experience</a></li>
-                    <li><a href="#activities">Other Activities</a></li>
-                </ul>
-            </div>
-        </header>
+    <nav>
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#research">Research Interests</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#projects">Fellowships and Projects</a></li>
+            <li><a href="#teaching">Teaching Experience</a></li>
+            <li><a href="#activities">Other Activities</a></li>
+        </ul>
+    </nav>
 
+    <div class="container">
         <section id="about" class="section">
             <h2>About Me</h2>
-            <h3>Name: Mikito Nanashima / 七島 幹人</h3>
+            <p>Name: Mikito Nanashima / 七島 幹人</p>
             <p>I'm an assistant professor of the School of Computing at Tokyo Institute of Technology in Japan.</p>
             <p>I received Ph.D. under the supervision of Prof. Toshiya Itoh. I had also been advised by Prof. Osamu Watanabe during my undergraduate.<br>
-                I was visiting Simons institute <a href="https://simons.berkeley.edu/programs/Meta-Complexity2023">Meta-Complexity program</a> as a visiting student on Feb. and Mar. 2023.</p>
-            <p>e-mail: nanashima at c dot titech dot ac dot jp (replace dot and at properly)</p>
+               I was visiting Simons institute <a href="https://simons.berkeley.edu/programs/Meta-Complexity2023">Meta-Complexity program</a> as a visiting student on Feb. and Mar. 2023.</p>
+            <p>Email: nanashima at c dot titech dot ac dot jp (replace dot and at properly)</p>
             <p>To be honest, I'm not confident in my English skills. If you see me at some international conference, please go easy on me🙇</p>
         </section>
 
         <section id="research" class="section">
             <h2>Research Interests</h2>
             <ul>
-                <li><strong>theoretical computer science</strong></li>
-                <li><strong>computational learning</strong>, <strong>computational complexity</strong>, <strong>cryptography</strong>, and <strong>proof complexity</strong> </li>
-                <li>connections among the above and proof tools to bridge them: for example, <strong>reductions</strong></li>
-                <li>a complexity theoretic view of <strong>information</strong></li>
+                <li><strong>Theoretical computer science</strong></li>
+                <li><strong>Computational learning</strong>, <strong>computational complexity</strong>, <strong>cryptography</strong>, and <strong>proof complexity</strong></li>
+                <li>Connections among the above and proof tools to bridge them: for example, <strong>reductions</strong></li>
+                <li>A complexity theoretic view of <strong>information</strong></li>
             </ul>
         </section>
         
@@ -219,7 +167,7 @@
             <p>[10] S. Hirahara and <u>M. Nanashima</u>, Learning in Pessiland via Inductive Inference, in FOCS2023 <a href="https://eccc.weizmann.ac.il/report/2023/100/">[full]</a>.</p>
             <p>[9] S. Hirahara, R. Ilango, Z. Lu, <u>M. Nanashima</u>, and I. C. Oliveira, A Duality Between One-Way Functions and Average-Case Symmetry of Information, in STOC2023 <a href="https://eccc.weizmann.ac.il/report/2023/035/">[full]</a>.</p>
             <p>[8] S. Hirahara and <u>M. Nanashima</u>, Learning versus Pseudorandom Generators in Constant Parallel Time, in ITCS2023 <a href="https://eccc.weizmann.ac.il/report/2022/164/">[full]</a>.</p>
-            <p>[7] S. Hirahara and <u>M. Nanashima</u>,  Finding Errorless Pessiland in Error-Prone Heuristica, in CCC2022<a href="https://drops.dagstuhl.de/opus/volltexte/2022/16587/pdf/LIPIcs-CCC-2022-25.pdf">[paper]</a>.</p>
+            <p>[7] S. Hirahara and <u>M. Nanashima</u>, Finding Errorless Pessiland in Error-Prone Heuristica, in CCC2022<a href="https://drops.dagstuhl.de/opus/volltexte/2022/16587/pdf/LIPIcs-CCC-2022-25.pdf">[paper]</a>.</p>
             <p>[6] S. Hirahara and <u>M. Nanashima</u>, On Worst-Case Learning in Relativized Heuristica, in FOCS2021 <a href="https://eccc.weizmann.ac.il/report/2021/161/">[full]</a>.</p>
             <p>[5] <u>M. Nanashima</u>, A Theory of Heuristic Learnability, in COLT2021<a href="http://proceedings.mlr.press/v134/nanashima21a/nanashima21a.pdf">[paper]</a>.</p>
             <p>[4] <u>M. Nanashima</u>, On Basing Auxiliary-Input Cryptography on NP-hardness via Nonadaptive Black-Box Reductions, in ITCS2021 <a href="https://drops.dagstuhl.de/opus/volltexte/2021/13568/">[paper]</a> <a href="https://eccc.weizmann.ac.il/report/2020/095/">[full]</a>.</p>
@@ -263,27 +211,10 @@
             <p>Conferences: RANDOM2021, STACS2022, CSR2022, CCC2022, ISAAC2022, STOC2023, CCC2023, FOCS2023, and more...</p>
             <p>Journal: Computational Complexity, SICOMP</p>
         </section>
-        
-        <footer>
-            <p>The code was produced by ChatGPT.</p>
-        </footer>
     </div>
-    <script>
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                var splashScreen = document.getElementById('splash-screen');
-                var mainContent = document.getElementById('main-content');
-                splashScreen.style.opacity = '0';
-                mainContent.style.display = 'block';
-                setTimeout(function() {
-                    splashScreen.style.display = 'none';
-                    mainContent.style.opacity = '1';
-                    document.body.style.overflow = 'auto';
-                    document.documentElement.style.overflow = 'auto';
-                }, 1000);
-            }, 1500);
-        });
-    </script>
+    
+    <footer>
+        <p>The code was produced by ChatGPT.</p>
+    </footer>
 </body>
 </html>
-
