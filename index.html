@@ -39,6 +39,7 @@
             background-color: #333;
             padding: 10px 0;
             background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+            position: relative;
         }
 
         nav ul {
@@ -107,17 +108,33 @@
             text-decoration: underline;
         }
 
+        /* Responsive Navigation */
         @media (max-width: 768px) {
-            .container {
-                width: 90%;
-            }
-
             nav ul {
                 flex-direction: column;
+                display: none;
             }
 
             nav ul li {
                 margin: 10px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                top: 10px;
+                right: 20px;
+                cursor: pointer;
+                color: #fff;
+                font-size: 1.5em;
+            }
+
+            .menu-toggle.active + ul {
+                display: flex;
+            }
+
+            .container {
+                width: 90%;
             }
         }
     </style>
@@ -125,10 +142,11 @@
 <body>
     <header>
         <h1>Mikito Nanashima</h1>
-        <p>Last Update: 2024.6.6</p>
+        <p>Last Update: 2024.4.7</p>
     </header>
 
     <nav>
+        <div class="menu-toggle">☰</div>
         <ul>
             <li><a href="#about">About Me</a></li>
             <li><a href="#research">Research Interests</a></li>
@@ -216,5 +234,13 @@
     <footer>
         <p>The code was produced by ChatGPT.</p>
     </footer>
+
+    <script>
+        // Toggle menu for mobile view
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
