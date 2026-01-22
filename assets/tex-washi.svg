@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="720" viewBox="0 0 720 720">
+  <defs>
+    <filter id="washi" x="-20%" y="-20%" width="140%" height="140%">
+      <!-- Fine grain -->
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="7" result="grain"/>
+      <!-- Long fibers -->
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="11" result="fiber"/>
+      <feColorMatrix in="fiber" type="matrix"
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0.55 0" result="fiberA"/>
+      <feBlend in="grain" in2="fiberA" mode="multiply" result="mix"/>
+      <feComponentTransfer in="mix">
+        <feFuncR type="gamma" amplitude="1" exponent="1.4" offset="0"/>
+        <feFuncG type="gamma" amplitude="1" exponent="1.4" offset="0"/>
+        <feFuncB type="gamma" amplitude="1" exponent="1.4" offset="0"/>
+        <feFuncA type="table" tableValues="0 0.32"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+  <!-- Draw as black ink; alpha comes from the filter -->
+  <rect width="720" height="720" fill="#000" filter="url(#washi)" opacity="0.55"/>
+</svg>

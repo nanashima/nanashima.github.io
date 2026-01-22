@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="1200" viewBox="0 0 2000 1200" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a251b" stop-opacity="0.22"/>
+      <stop offset="55%" stop-color="#0f1626" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0f1626" stop-opacity="0"/>
+    </linearGradient>
+
+    <radialGradient id="vignette" cx="55%" cy="40%" r="72%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.28"/>
+    </radialGradient>
+
+    <radialGradient id="disc" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#e0c070" stop-opacity="0.18"/>
+      <stop offset="70%" stop-color="#e0c070" stop-opacity="0.099"/>
+      <stop offset="100%" stop-color="#e0c070" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="fog" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="45%" stop-color="#fff" stop-opacity="0.1"/>
+      <stop offset="70%" stop-color="#fff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="2000" height="1200" fill="url(#sky)"/>
+  <circle cx="1520" cy="300" r="220" fill="url(#disc)"/>
+
+  <path d="M 0 1200 L 0.0 933.0 222.2 965.7 444.4 901.9 666.7 814.6 888.9 815.3 1111.1 826.2 1333.3 854.8 1555.6 943.0 1777.8 916.8 2000.0 898.7 L 2000 1200 Z" fill="#000000" opacity="0.16"/>
+  <path d="M 0 1200 L 0.0 1067.0 222.2 1041.5 444.4 1017.2 666.7 994.4 888.9 942.4 1111.1 958.5 1333.3 974.5 1555.6 1022.3 1777.8 1029.1 2000.0 1046.8 L 2000 1200 Z" fill="#000000" opacity="0.12"/>
+
+  <g fill="none" stroke="#e0c070" stroke-width="1.4" opacity="0.09">
+    <path d="M -80 760 C 380 700, 860 820, 1320 760 S 2080 700, 2480 760"/>
+    <path d="M -80 820 C 420 760, 940 880, 1460 820 S 2140 760, 2480 820"/>
+  </g>
+
+  <rect y="560" width="2000" height="520" fill="url(#fog)"/>
+  <path d="M 420 965 C 424 935, 442 919, 450 891" fill="none" stroke="#e0c070" stroke-width="2.2" opacity="0.08" stroke-linecap="round"/>
+  <rect width="2000" height="1200" fill="url(#vignette)"/>
+</svg>
