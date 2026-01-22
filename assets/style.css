@@ -190,8 +190,10 @@ body{
   background-repeat:no-repeat;
   background-size:cover;
   background-position:center;
-  opacity:.60;
+  /* Hoitsu motifs: visible enough to feel concrete, but still printed-on-paper */
+  opacity:.72;
   mix-blend-mode:multiply;
+  filter:saturate(1.08) contrast(1.10);
   pointer-events:none;
 
   z-index:1;
@@ -246,6 +248,17 @@ body{
   pointer-events:none;
 }
 
+/* Summer: soften the blue ↔ gold (orange) transition by bridging with teal */
+html[data-season="summer"] .header-panel::after{
+  background:linear-gradient(90deg,
+    rgba(var(--gold-rgb),.62),
+    rgba(var(--spot2),.24),
+    rgba(var(--spot1),.26),
+    rgba(var(--spot2),.24),
+    rgba(var(--gold-rgb),.62));
+  opacity:.90;
+}
+
 .header-panel > *{
   position:relative;
   z-index:1;
@@ -286,12 +299,20 @@ body{
   color:var(--indigo-2);
 }
 
-.name-ja{
+.name-line{
   margin:0 0 10px;
-  font-family:'Kaisei Opti','Noto Serif JP',"Yu Mincho","Hiragino Mincho ProN",serif;
-  font-size:1.05rem;
-  letter-spacing:.22em;
   color:var(--muted);
+}
+
+.name-ja{
+  display:inline-block;
+  margin:0;
+  padding-left:.06em;
+  font-family:'Kaisei Opti','Noto Serif JP',"Yu Mincho","Hiragino Mincho ProN","Hiragino Mincho Pro",serif;
+  font-size:1.02rem;
+  letter-spacing:.12em;
+  font-weight:600;
+  color:inherit;
 }
 
 
@@ -382,6 +403,16 @@ nav ul li a::after{
   pointer-events:none;
 }
 
+/* Summer: bridge gold ↔ indigo with teal for calmer harmony */
+html[data-season="summer"] nav ul li a::after{
+  background:linear-gradient(90deg,
+    rgba(var(--gold-rgb),.56),
+    rgba(var(--spot2),.12),
+    rgba(var(--spot1),.08),
+    rgba(var(--gold-rgb),.56));
+  opacity:.44;
+}
+
 nav ul li a:hover{
   background:rgba(var(--link-pigment),.06);
   border-color:rgba(var(--gold-rgb),.32);
@@ -454,6 +485,15 @@ nav ul li a:hover::after{ opacity:.72; }
   pointer-events:none;
 }
 
+/* Summer: keep the same geometry, but insert a teal bridge so blue ↔ gold feels quieter */
+html[data-season="summer"] .section::after{
+  background:linear-gradient(180deg,
+    rgba(var(--gold-rgb),.74),
+    rgba(var(--spot2),.32),
+    rgba(var(--spot1),.22),
+    rgba(var(--gold-rgb),.62));
+}
+
 .section > *{
   position:relative;
   z-index:1;
@@ -485,6 +525,14 @@ nav ul li a:hover::after{ opacity:.72; }
   background:linear-gradient(90deg, rgba(var(--gold-rgb),.70), rgba(var(--spot1),.28), transparent);
 }
 
+html[data-season="summer"] .section h2::after{
+  background:linear-gradient(90deg,
+    rgba(var(--gold-rgb),.64),
+    rgba(var(--spot2),.18),
+    rgba(var(--spot1),.20),
+    transparent);
+}
+
 .section h3{
   margin:18px 0 8px;
   font-size:1.05rem;
@@ -503,6 +551,590 @@ nav ul li a:hover::after{ opacity:.72; }
 
 .section p{
   margin:10px 0;
+}
+
+/* =========================
+   Publications (more scannable)
+   ========================= */
+#publications .pub-entry{
+  position:relative;
+  margin:12px 0;
+  padding:12px 14px;
+  display:grid;
+  grid-template-columns:3.9rem 1fr;
+  gap:14px;
+  align-items:start;
+
+  background:rgba(255,255,255,.58);
+  border:1px solid rgba(28,42,74,.10);
+  box-shadow:
+    inset 0 -1px 0 rgba(var(--gold-rgb),.10),
+    inset 0 0 0 1px rgba(255,255,255,.10);
+
+  /* angular "paper-cut" corner */
+  clip-path: polygon(var(--cut-sm) 0, 100% 0, 100% calc(100% - var(--cut-sm)), calc(100% - var(--cut-sm)) 100%, 0 100%, 0 var(--cut-sm));
+
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, border-color .18s ease;
+}
+
+#publications .pub-entry::after{
+  content:"";
+  position:absolute;
+  left:12px;
+  right:12px;
+  bottom:0;
+  height:2px;
+  background:linear-gradient(90deg,
+    rgba(var(--gold-rgb),.46),
+    rgba(var(--link-pigment),.12),
+    rgba(var(--gold-rgb),.46));
+  opacity:.18;
+  pointer-events:none;
+}
+
+/* Summer: blue ↔ gold lines get a teal bridge (less "complementary clash") */
+html[data-season="summer"] #publications .pub-entry::after{
+  background:linear-gradient(90deg,
+    rgba(var(--gold-rgb),.40),
+    rgba(var(--spot2),.14),
+    rgba(var(--spot1),.10),
+    rgba(var(--gold-rgb),.40));
+}
+
+#publications .pub-entry.is-clickable{
+  cursor:pointer;
+}
+
+#publications .pub-entry.is-clickable:hover{
+  transform:translateY(-1px);
+  background:rgba(255,255,255,.62);
+  border-color:rgba(var(--gold-rgb),.28);
+  box-shadow:
+    0 18px 44px rgba(15,27,51,.14),
+    inset 0 -1px 0 rgba(var(--gold-rgb),.12),
+    inset 0 0 0 1px rgba(255,255,255,.10);
+}
+
+#publications .pub-entry.is-clickable:hover::after{
+  opacity:.46;
+}
+
+#publications .pub-entry.is-clickable:focus-visible{
+  outline:2px solid rgba(var(--gold-rgb),.42);
+  outline-offset:4px;
+}
+
+#publications .pub-index{
+  align-self:start;
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  height:2.2rem;
+  width:3.9rem;
+  font-family:'Kaisei Opti','Noto Serif JP',"Yu Mincho","Hiragino Mincho ProN",serif;
+  font-weight:600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing:.02em;
+
+  color: color-mix(in srgb, var(--indigo-2) 86%, rgba(var(--spot1),1) 14%);
+  background:linear-gradient(180deg, rgba(255,255,255,.88), rgba(var(--gold-rgb),.08));
+  border:1px solid rgba(var(--gold-rgb),.30);
+  box-shadow:
+    inset 0 -1px 0 rgba(var(--gold-rgb),.18),
+    inset 0 0 0 1px rgba(255,255,255,.10);
+
+  /* refined octagon (better proportions than pixel-cut on small badges) */
+  clip-path: polygon(12% 0, 88% 0, 100% 24%, 100% 76%, 88% 100%, 12% 100%, 0 76%, 0 24%);
+  position:relative;
+}
+
+/* subtle inner keyline (Masahiro-Maruyama-ish precision) */
+#publications .pub-index::after{
+  content:"";
+  position:absolute;
+  inset:3px;
+  border:1px solid rgba(var(--gold-rgb),.16);
+  clip-path: polygon(12% 0, 88% 0, 100% 24%, 100% 76%, 88% 100%, 12% 100%, 0 76%, 0 24%);
+  opacity:.95;
+  pointer-events:none;
+}
+
+#publications .pub-content{ display:block; }
+
+/* Highlight the author's name (kept as <u> in HTML) */
+#publications .pub-entry u{
+  text-decoration:none;
+  font-weight:750;
+  padding:0 .06em .10em;
+  background-image: linear-gradient(90deg, rgba(var(--gold-rgb),.50), rgba(var(--spot1),.22), transparent);
+  background-repeat:no-repeat;
+  background-size:100% 2px;
+  background-position:0 100%;
+}
+
+html[data-season="summer"] #publications .pub-entry u{
+  background-image: linear-gradient(90deg,
+    rgba(var(--gold-rgb),.46),
+    rgba(var(--spot2),.18),
+    rgba(var(--spot1),.14),
+    transparent);
+}
+
+/* Publication links as small "tags" (override global link underline motif) */
+#publications .pub-entry a{
+  background-image:none;
+  box-shadow:none;
+  padding:.06em .50em;
+  margin-left:.12em;
+  border:1px solid rgba(var(--gold-rgb),.22);
+  background:rgba(255,255,255,.34);
+  color: color-mix(in srgb, var(--ink) 82%, rgba(var(--link-pigment),1) 18%);
+  font-size:.88em;
+  font-weight:650;
+  letter-spacing:.02em;
+  text-decoration:none;
+  display:inline-block;
+  vertical-align:baseline;
+  clip-path: polygon(var(--cut-sm) 0, 100% 0, 100% calc(100% - var(--cut-sm)), calc(100% - var(--cut-sm)) 100%, 0 100%, 0 var(--cut-sm));
+  box-decoration-break:clone;
+
+  transition: background-color .18s ease, border-color .18s ease, transform .18s ease, box-shadow .18s ease, color .18s ease;
+}
+
+#publications .pub-entry a:hover{
+  background:rgba(var(--link-pigment),.06);
+  border-color:rgba(var(--gold-rgb),.34);
+  box-shadow:0 12px 26px rgba(15,27,51,.10), inset 0 -2px 0 rgba(var(--link-pigment),.18);
+  transform:translateY(-1px);
+}
+
+#publications .pub-entry a:focus-visible{
+  outline:2px solid rgba(var(--gold-rgb),.42);
+  outline-offset:3px;
+}
+
+/* =========================
+   Projects / Teaching / Activities (scannable cards)
+   - keep the outer card cut-corner shape
+   - vary badge geometry + accent placement per section
+   ========================= */
+
+/* Base card (shared) */
+.section .item-entry{
+  position:relative;
+  margin:12px 0;
+  padding:12px 14px;
+  display:grid;
+  gap:14px;
+  align-items:start;
+
+  background:rgba(255,255,255,.56);
+  border:1px solid rgba(28,42,74,.10);
+  box-shadow:
+    inset 0 -1px 0 rgba(var(--gold-rgb),.08),
+    inset 0 0 0 1px rgba(255,255,255,.10);
+
+  clip-path: polygon(var(--cut-sm) 0, 100% 0, 100% calc(100% - var(--cut-sm)), calc(100% - var(--cut-sm)) 100%, 0 100%, 0 var(--cut-sm));
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, border-color .18s ease;
+}
+
+.section .item-entry.is-clickable{ cursor:pointer; }
+
+.section .item-entry.is-clickable:hover{
+  transform:translateY(-1px);
+  border-color:rgba(var(--gold-rgb),.26);
+  background:rgba(255,255,255,.60);
+  box-shadow:
+    0 18px 44px rgba(15,27,51,.14),
+    inset 0 -1px 0 rgba(var(--gold-rgb),.10),
+    inset 0 0 0 1px rgba(255,255,255,.10);
+}
+
+.section .item-entry.is-clickable:focus-visible{
+  outline:2px solid rgba(var(--gold-rgb),.42);
+  outline-offset:4px;
+}
+
+.section .item-body{ display:block; }
+
+/* Base badge (shared) */
+.section .item-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Kaisei Opti','Noto Serif JP',"Yu Mincho","Hiragino Mincho ProN",serif;
+  font-weight:650;
+  letter-spacing:.02em;
+  color: color-mix(in srgb, var(--indigo-2) 86%, rgba(var(--spot1),1) 14%);
+  background:linear-gradient(180deg, rgba(255,255,255,.86), rgba(var(--gold-rgb),.06));
+  border:1px solid rgba(var(--gold-rgb),.24);
+  box-shadow: inset 0 -1px 0 rgba(var(--gold-rgb),.14);
+}
+
+/* ---- Projects: timeline-like (date stacked) ---- */
+#projects .item-entry{ grid-template-columns:5.2rem 1fr; }
+
+#projects .item-entry::after{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:3px;
+  background:linear-gradient(180deg,
+    rgba(var(--gold-rgb),.70),
+    rgba(var(--spot1),.30),
+    rgba(var(--gold-rgb),.58));
+  opacity:.62;
+  pointer-events:none;
+}
+
+html[data-season="summer"] #projects .item-entry::after{
+  background:linear-gradient(180deg,
+    rgba(var(--gold-rgb),.66),
+    rgba(var(--spot2),.28),
+    rgba(var(--spot1),.20),
+    rgba(var(--gold-rgb),.54));
+}
+
+#projects .item-entry.item-kind-co::after{
+  background:linear-gradient(180deg,
+    rgba(var(--gold-rgb),.64),
+    rgba(var(--spot2),.26),
+    rgba(var(--gold-rgb),.54));
+  opacity:.54;
+}
+
+#projects .item-entry.item-kind-prize::after{ opacity:.78; }
+
+#projects .item-badge{
+  width:5.2rem;
+  min-height:2.55rem;
+  padding:6px 10px;
+  flex-direction:column;
+  gap:4px;
+
+  /* opposite-corner chamfer (subtle asymmetry) */
+  clip-path: polygon(0 0, calc(100% - var(--cut-sm)) 0, 100% var(--cut-sm), 100% 100%, var(--cut-sm) 100%, 0 calc(100% - var(--cut-sm)));
+  position:relative;
+}
+
+#projects .item-badge::after{
+  content:"";
+  position:absolute;
+  inset:3px;
+  border:1px solid rgba(var(--gold-rgb),.14);
+  clip-path: polygon(0 0, calc(100% - var(--cut-sm)) 0, 100% var(--cut-sm), 100% 100%, var(--cut-sm) 100%, 0 calc(100% - var(--cut-sm)));
+  opacity:.90;
+  pointer-events:none;
+}
+
+#projects .item-badge .badge-top,
+#projects .item-badge .badge-bot{
+  font-family:'Noto Sans JP', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight:750;
+  font-variant-numeric: tabular-nums;
+  letter-spacing:.02em;
+  font-size:.78rem;
+}
+
+#projects .item-badge .badge-bot{ opacity:.72; }
+
+#projects .item-badge .badge-line{
+  width:66%;
+  height:1px;
+  background:linear-gradient(90deg, transparent, rgba(var(--gold-rgb),.44), transparent);
+  opacity:.70;
+}
+
+/* Prize badge: centered label (kept minimal) */
+#projects .item-entry.item-kind-prize .item-badge{
+  flex-direction:row;
+  gap:0;
+}
+
+/* Ikushi Prize: when the inline [link] tag is removed, keep an unmistakable (but subtle) button cue */
+#projects .item-entry.item-kind-prize.is-clickable::before{
+  content:"↗";
+  position:absolute;
+  right:14px;
+  top:12px;
+  font-size:.95rem;
+  color: color-mix(in srgb, rgba(var(--spot1),1) 60%, rgba(var(--gold-rgb),1) 40%);
+  opacity:0;
+  transform:translateY(2px);
+  transition: opacity .18s ease, transform .18s ease;
+  pointer-events:none;
+}
+
+#projects .item-entry.item-kind-prize.is-clickable:hover::before,
+#projects .item-entry.item-kind-prize.is-clickable:focus-visible::before{
+  opacity:.62;
+  transform:translateY(0);
+}
+
+#projects .item-entry.item-kind-prize.is-clickable:hover .item-badge{
+  border-color:rgba(var(--gold-rgb),.34);
+  box-shadow:
+    0 12px 28px rgba(15,27,51,.12),
+    inset 0 -1px 0 rgba(var(--gold-rgb),.16);
+}
+
+/* ---- Teaching: label badge on the right ---- */
+#teaching .item-entry{
+  grid-template-columns:1fr max-content;
+  gap:12px;
+}
+
+#teaching .item-body{ order:1; }
+#teaching .item-badge{ order:2; justify-self:end; align-self:start; }
+
+#teaching .item-entry::after{
+  content:"";
+  position:absolute;
+  left:12px;
+  right:12px;
+  top:0;
+  height:2px;
+  background:linear-gradient(90deg,
+    rgba(var(--gold-rgb),.54),
+    rgba(var(--spot1),.22),
+    rgba(var(--gold-rgb),.54));
+  opacity:.22;
+  pointer-events:none;
+}
+
+html[data-season="summer"] #teaching .item-entry::after{
+  background:linear-gradient(90deg,
+    rgba(var(--gold-rgb),.48),
+    rgba(var(--spot2),.16),
+    rgba(var(--spot1),.14),
+    rgba(var(--gold-rgb),.48));
+}
+
+#teaching .item-badge{
+  padding:7px 12px;
+  min-height:2.1rem;
+  font-size:.86rem;
+
+  /* arrow-chamfer label */
+  clip-path: polygon(0 0, calc(100% - var(--cut-sm)) 0, 100% 50%, calc(100% - var(--cut-sm)) 100%, 0 100%, var(--cut-sm) 50%);
+  position:relative;
+}
+
+#teaching .item-badge::after{
+  content:"";
+  position:absolute;
+  inset:3px;
+  border:1px solid rgba(var(--gold-rgb),.14);
+  clip-path: polygon(0 0, calc(100% - var(--cut-sm)) 0, 100% 50%, calc(100% - var(--cut-sm)) 100%, 0 100%, var(--cut-sm) 50%);
+  opacity:.88;
+  pointer-events:none;
+}
+
+/* ---- Activities: compact badge on the left + thin top-right rule ---- */
+#activities .item-entry{ grid-template-columns:4.2rem 1fr; }
+
+#activities .item-entry::after{
+  content:"";
+  position:absolute;
+  right:14px;
+  top:12px;
+  width:46%;
+  height:1px;
+  background:linear-gradient(90deg,
+    transparent,
+    rgba(var(--gold-rgb),.38),
+    rgba(var(--spot2),.18));
+  opacity:.34;
+  pointer-events:none;
+}
+
+#activities .item-badge{
+  width:4.2rem;
+  min-height:2.2rem;
+  padding:6px 10px;
+  font-size:.86rem;
+  clip-path: polygon(var(--cut-sm) 0, 100% 0, 100% calc(100% - var(--cut-sm)), calc(100% - var(--cut-sm)) 100%, 0 100%, 0 var(--cut-sm));
+  position:relative;
+}
+
+#activities .item-badge::after{
+  content:"";
+  position:absolute;
+  inset:3px;
+  border:1px solid rgba(var(--gold-rgb),.14);
+  clip-path: polygon(var(--cut-sm) 0, 100% 0, 100% calc(100% - var(--cut-sm)), calc(100% - var(--cut-sm)) 100%, 0 100%, 0 var(--cut-sm));
+  opacity:.88;
+  pointer-events:none;
+}
+
+#activities .item-entry.item-kind-review::after{
+  background:linear-gradient(90deg,
+    transparent,
+    rgba(var(--gold-rgb),.38),
+    rgba(var(--spot3),.18));
+}
+
+
+/* Activities: refine Review items into "Review (Conference)" / "Review (Journal)" (without breaking the card geometry) */
+#activities .item-entry.item-kind-review{
+  grid-template-columns:5.8rem 1fr;
+}
+
+#activities .item-entry.item-kind-review .item-badge{
+  width:5.8rem;
+  flex-direction:column;
+  gap:2px;
+  line-height:1.05;
+  padding:6px 10px;
+}
+
+#activities .item-entry.item-kind-review .item-badge .badge-top{
+  font-size:.80rem;
+}
+
+#activities .item-entry.item-kind-review .item-badge .badge-bot{
+  font-size:.68rem;
+  opacity:.80;
+}
+
+/* Activities: make the "Math on Difficulties..." talk feel as clickable as Publications (subtle bottom rule + clearer hover cue) */
+#activities .item-entry.item-kind-talk.is-clickable{
+  background-image: linear-gradient(90deg,
+    rgba(var(--gold-rgb),.34),
+    rgba(var(--spot2),.12),
+    rgba(var(--gold-rgb),.34));
+  background-repeat:no-repeat;
+  background-size: calc(100% - 28px) 2px;
+  background-position: 14px calc(100% - 1px);
+}
+
+#activities .item-entry.item-kind-talk.is-clickable:hover{
+  background-image: linear-gradient(90deg,
+    rgba(var(--gold-rgb),.46),
+    rgba(var(--spot2),.18),
+    rgba(var(--gold-rgb),.46));
+}
+
+#activities .item-entry.item-kind-talk.is-clickable:hover::after,
+#activities .item-entry.item-kind-talk.is-clickable:focus-visible::after{
+  opacity:.60;
+}
+
+/* A small external-link cue (kept quiet; appears on hover/focus) */
+#activities .item-entry.item-kind-talk.is-clickable::before{
+  content:"↗";
+  position:absolute;
+  right:14px;
+  top:10px;
+  font-size:.95rem;
+  color: color-mix(in srgb, rgba(var(--spot2),1) 55%, rgba(var(--gold-rgb),1) 45%);
+  opacity:0;
+  transform:translateY(2px);
+  transition: opacity .18s ease, transform .18s ease;
+  pointer-events:none;
+}
+
+#activities .item-entry.item-kind-talk.is-clickable:hover::before,
+#activities .item-entry.item-kind-talk.is-clickable:focus-visible::before{
+  opacity:.62;
+  transform:translateY(0);
+}
+
+/* Projects: Ikushi Prize should also highlight like Publications (subtle bottom rule + stronger left accent on hover) */
+#projects .item-entry.item-kind-prize.is-clickable{
+  background-image: linear-gradient(90deg,
+    rgba(var(--gold-rgb),.34),
+    rgba(var(--spot1),.12),
+    rgba(var(--gold-rgb),.34));
+  background-repeat:no-repeat;
+  background-size: calc(100% - 28px) 2px;
+  background-position: 14px calc(100% - 1px);
+}
+
+#projects .item-entry.item-kind-prize.is-clickable:hover{
+  background-image: linear-gradient(90deg,
+    rgba(var(--gold-rgb),.50),
+    rgba(var(--spot1),.16),
+    rgba(var(--gold-rgb),.50));
+}
+
+#projects .item-entry.item-kind-prize.is-clickable:hover::after,
+#projects .item-entry.item-kind-prize.is-clickable:focus-visible::after{
+  opacity:.98;
+  width:4px;
+}
+
+
+
+/* ------------------------------------------------------------------ */
+/* Match Publications glow for selected cards (Ikushi Prize / recorded talk) */
+/* ------------------------------------------------------------------ */
+.section .item-entry.glow-like-pub .card-glowline{
+  position:absolute;
+  left:12px;
+  right:12px;
+  bottom:0;
+  height:2px;
+  background:linear-gradient(90deg,
+    rgba(var(--gold-rgb),.46),
+    rgba(var(--link-pigment),.12),
+    rgba(var(--gold-rgb),.46));
+  opacity:.18;
+  pointer-events:none;
+  transition: opacity .18s ease;
+}
+
+html[data-season="summer"] .section .item-entry.glow-like-pub .card-glowline{
+  background:linear-gradient(90deg,
+    rgba(var(--gold-rgb),.40),
+    rgba(var(--spot2),.14),
+    rgba(var(--spot1),.10),
+    rgba(var(--gold-rgb),.40));
+}
+
+.section .item-entry.glow-like-pub.is-clickable:hover{
+  background:rgba(255,255,255,.62);
+  border-color:rgba(var(--gold-rgb),.28);
+  box-shadow:
+    0 18px 44px rgba(15,27,51,.14),
+    inset 0 -1px 0 rgba(var(--gold-rgb),.12),
+    inset 0 0 0 1px rgba(255,255,255,.10);
+}
+
+.section .item-entry.glow-like-pub.is-clickable:hover .card-glowline{
+  opacity:.46;
+}
+
+/* Remove custom bottom-rule variants on these cards so the glow matches Publications */
+#projects .item-entry.item-kind-prize.is-clickable.glow-like-pub,
+#activities .item-entry.item-kind-talk.is-clickable.glow-like-pub{
+  background-image:none;
+}
+
+#projects .item-entry.item-kind-prize.is-clickable.glow-like-pub:hover,
+#activities .item-entry.item-kind-talk.is-clickable.glow-like-pub:hover{
+  background-image:none;
+}
+
+/* Reset section-specific hover accents so they don't deviate from Publications */
+#projects .item-entry.item-kind-prize.is-clickable.glow-like-pub:hover::after,
+#projects .item-entry.item-kind-prize.is-clickable.glow-like-pub:focus-visible::after{
+  width:3px;
+  opacity:.62;
+}
+
+#activities .item-entry.item-kind-talk.is-clickable.glow-like-pub:hover::after,
+#activities .item-entry.item-kind-talk.is-clickable.glow-like-pub:focus-visible::after{
+  opacity:.34;
+}
+
+/* Keep the badge steady (avoid extra "badge-only" flare that Publications doesn't have) */
+#projects .item-entry.item-kind-prize.is-clickable.glow-like-pub:hover .item-badge,
+#projects .item-entry.item-kind-prize.is-clickable.glow-like-pub:focus-visible .item-badge{
+  border-color:rgba(var(--gold-rgb),.24);
+  box-shadow: inset 0 -1px 0 rgba(var(--gold-rgb),.14);
 }
 
 /* Inline links — Rinpa harmony (minimum affordance) */
@@ -717,8 +1349,10 @@ footer{
   }
 
   .motif-layer{
-    opacity:.34;
+    /* Make the seasonal Hoitsu motifs perceivable even on dark paper */
+    opacity:.46;
     mix-blend-mode:screen;
+    filter:saturate(1.10) contrast(1.12);
   }
 
 
@@ -777,6 +1411,54 @@ footer{
   .section{
     background:rgba(15,22,38,.72);
     border:1px solid rgba(238,240,244,.12);
+  }
+
+  /* Publications in dark mode */
+  #publications .pub-entry{
+    background:rgba(15,22,38,.66);
+    border:1px solid rgba(238,240,244,.12);
+    box-shadow:
+      inset 0 -1px 0 rgba(var(--gold-rgb),.10),
+      inset 0 0 0 1px rgba(0,0,0,.24);
+  }
+  #publications .pub-index{
+    background:linear-gradient(180deg, rgba(15,22,38,.92), rgba(var(--gold-rgb),.10));
+    border:1px solid rgba(var(--gold-rgb),.22);
+    color:rgba(238,240,244,.92);
+  }
+  #publications .pub-entry a{
+    background:rgba(15,22,38,.78);
+    border:1px solid rgba(var(--gold-rgb),.18);
+    color: color-mix(in srgb, rgba(238,240,244,.92) 88%, rgba(var(--link-pigment),1) 12%);
+  }
+  #publications .pub-entry a:hover{
+    background:rgba(var(--link-pigment),.12);
+    border-color:rgba(var(--gold-rgb),.26);
+    box-shadow:0 14px 30px rgba(0,0,0,.40), inset 0 -2px 0 rgba(var(--link-pigment),.22);
+  }
+
+  /* Projects / Teaching / Activities item cards in dark mode */
+  .section .item-entry{
+    background:rgba(15,22,38,.66);
+    border:1px solid rgba(238,240,244,.12);
+    box-shadow:
+      inset 0 -1px 0 rgba(var(--gold-rgb),.10),
+      inset 0 0 0 1px rgba(0,0,0,.24);
+  }
+
+  .section .item-entry.is-clickable:hover{
+    background:rgba(15,22,38,.74);
+    border-color:rgba(var(--gold-rgb),.24);
+    box-shadow:
+      0 18px 44px rgba(0,0,0,.40),
+      inset 0 -1px 0 rgba(var(--gold-rgb),.12),
+      inset 0 0 0 1px rgba(0,0,0,.24);
+  }
+
+  .section .item-badge{
+    background:linear-gradient(180deg, rgba(15,22,38,.92), rgba(var(--gold-rgb),.10));
+    border:1px solid rgba(var(--gold-rgb),.20);
+    color: color-mix(in srgb, rgba(238,240,244,.92) 88%, rgba(var(--spot1),1) 12%);
   }
 
   .section::before{
