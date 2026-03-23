@@ -191,4 +191,19 @@ html[data-season="summer"] .lab-page .notice-card::before{
     border:1px solid rgba(var(--gold-rgb),.20);
     color: color-mix(in srgb, rgba(238,240,244,.92) 88%, rgba(var(--spot1),1) 12%);
   }
+
+  .advisor-line,
+.advisor-line strong,
+.advisor-line .advisor-name {
+  font-weight: 700;
+}
+
+.advisor-line .advisor-link {
+  font-weight: 400;
+  margin-left: 0.4em;
+}
+
+.advisor-line span[lang="en"] {
+  font-weight: 700;
+}
 }
