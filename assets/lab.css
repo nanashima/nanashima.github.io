@@ -1,0 +1,194 @@
+/* =========================
+   Laboratory page styles
+   (loaded in addition to assets/style.css)
+   ========================= */
+
+.lab-page .page-kicker{
+  margin:0 0 10px;
+  font-size:.80rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+.lab-page .page-lead{
+  max-width:760px;
+  margin:14px auto 0;
+  color:var(--muted);
+  font-size:1.02rem;
+}
+
+.lab-page .page-lead strong{
+  color:var(--indigo);
+}
+
+.lab-page .section-lead{
+  margin:0 0 16px;
+  color:var(--muted);
+}
+
+.lab-page .eyebrow{
+  margin:0 0 8px;
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+.lab-page .quick-facts,
+.lab-page .people-grid{
+  display:grid;
+  gap:14px;
+}
+
+.lab-page .quick-facts{
+  grid-template-columns:repeat(auto-fit, minmax(190px, 1fr));
+}
+
+.lab-page .people-grid{
+  grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.lab-page .single-person-grid{
+  grid-template-columns:minmax(260px, 520px);
+}
+
+.lab-page .template-card,
+.lab-page .notice-card{
+  position:relative;
+  overflow:hidden;
+  background:rgba(255,255,255,.58);
+  border:1px solid rgba(28,42,74,.10);
+  box-shadow:
+    inset 0 -1px 0 rgba(var(--gold-rgb),.10),
+    inset 0 0 0 1px rgba(255,255,255,.10);
+  clip-path: polygon(var(--cut-sm) 0, 100% 0, 100% calc(100% - var(--cut-sm)), calc(100% - var(--cut-sm)) 100%, 0 100%, 0 var(--cut-sm));
+}
+
+.lab-page .template-card{
+  padding:16px 16px 14px;
+}
+
+.lab-page .template-card::after,
+.lab-page .notice-card::after{
+  content:"";
+  position:absolute;
+  left:12px;
+  right:12px;
+  bottom:0;
+  height:2px;
+  background:linear-gradient(90deg,
+    rgba(var(--gold-rgb),.46),
+    rgba(var(--link-pigment),.12),
+    rgba(var(--gold-rgb),.46));
+  opacity:.20;
+  pointer-events:none;
+}
+
+html[data-season="summer"] .lab-page .template-card::after,
+html[data-season="summer"] .lab-page .notice-card::after{
+  background:linear-gradient(90deg,
+    rgba(var(--gold-rgb),.40),
+    rgba(var(--spot2),.14),
+    rgba(var(--spot1),.10),
+    rgba(var(--gold-rgb),.40));
+}
+
+.lab-page .template-card h3,
+.lab-page .notice-card h3{
+  margin:0 0 8px;
+  color:var(--indigo);
+  font-size:1.05rem;
+}
+
+.lab-page .template-card p:last-child,
+.lab-page .notice-card p:last-child{
+  margin-bottom:0;
+}
+
+.lab-page .quick-fact strong{
+  display:block;
+  margin:0 0 6px;
+  font-size:1.02rem;
+  color:var(--indigo-2);
+}
+
+.lab-page .person-card{
+  min-height:100%;
+}
+
+.lab-page .person-role{
+  display:inline-flex;
+  align-items:center;
+  width:max-content;
+  margin:0 0 10px;
+  padding:6px 10px;
+  min-height:2rem;
+  font-size:.82rem;
+  font-weight:700;
+  color: color-mix(in srgb, var(--indigo-2) 84%, rgba(var(--spot1),1) 16%);
+  border:1px solid rgba(var(--gold-rgb),.22);
+  background:linear-gradient(180deg, rgba(255,255,255,.86), rgba(var(--gold-rgb),.06));
+  clip-path: polygon(0 0, calc(100% - var(--cut-sm)) 0, 100% 50%, calc(100% - var(--cut-sm)) 100%, 0 100%, var(--cut-sm) 50%);
+}
+
+.lab-page .notice-card{
+  margin-top:16px;
+  padding:18px 18px 16px 22px;
+}
+
+.lab-page .notice-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:4px;
+  background:linear-gradient(180deg,
+    rgba(var(--gold-rgb),.78),
+    rgba(var(--spot1),.34),
+    rgba(var(--gold-rgb),.62));
+  pointer-events:none;
+}
+
+html[data-season="summer"] .lab-page .notice-card::before{
+  background:linear-gradient(180deg,
+    rgba(var(--gold-rgb),.72),
+    rgba(var(--spot2),.28),
+    rgba(var(--spot1),.20),
+    rgba(var(--gold-rgb),.58));
+}
+
+.lab-page .template-card a,
+.lab-page .notice-card a{
+  word-break:break-word;
+}
+
+.lab-page .template-card a{
+  font-weight:650;
+}
+
+@media (max-width: 720px){
+  .lab-page .single-person-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (prefers-color-scheme: dark){
+  .lab-page .template-card,
+  .lab-page .notice-card{
+    background:rgba(15,22,38,.66);
+    border:1px solid rgba(238,240,244,.12);
+    box-shadow:
+      inset 0 -1px 0 rgba(var(--gold-rgb),.10),
+      inset 0 0 0 1px rgba(0,0,0,.24);
+  }
+
+  .lab-page .person-role{
+    background:linear-gradient(180deg, rgba(15,22,38,.92), rgba(var(--gold-rgb),.10));
+    border:1px solid rgba(var(--gold-rgb),.20);
+    color: color-mix(in srgb, rgba(238,240,244,.92) 88%, rgba(var(--spot1),1) 12%);
+  }
+}
