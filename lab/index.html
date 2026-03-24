@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>七島研究室 | Mikito Nanashima</title>
-  <meta name="description" content="七島研究室の準備中ページです。" />
+  <meta name="description" content="七島研究室の準備中ページです。研究概要とメンバー案内を掲載しています。" />
   <meta name="color-scheme" content="light" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,7 +25,7 @@
         <h1><span lang="ja">七島研究室</span></h1>
         <p class="page-lead">
           2026年 5月 立ち上げの研究室です．<br />
-          <strong>計算複雑さ理論を主軸とした研究</strong> を行います．
+          主に <strong>計算複雑さ理論を主軸とした研究</strong> を行います．
         </p>
       </div>
 
@@ -36,11 +36,16 @@
     </div>
   </header>
 
+  <nav class="lab-local-nav" aria-label="研究室ページ内ナビゲーション">
+    <a class="lab-nav-link is-current" href="./index.html" data-nav-no="01" aria-current="page">研究室トップ</a>
+    <a class="lab-nav-link" href="./members/index.html" data-nav-no="02">メンバー</a>
+    <a class="lab-nav-link" href="./alumni/index.html" data-nav-no="03">過去のメンバー</a>
+  </nav>
+
   <main class="page-shell">
     <section class="section lab-section" id="overview">
       <div class="section-heading">
-        <p class="section-kicker">序</p>
-        <h2>研究室について</h2>
+        <h2> 研究室について</h2>
       </div>
 
       <div class="lab-grid">
@@ -65,6 +70,23 @@
           <p>詳細な情報は今後順次追加していきます．</p>
           <p class="back-link"><a href="../index.html">教員個人ページへのリンク</a></p>
         </aside>
+      </div>
+    </section>
+
+    <section class="section lab-section" id="people">
+
+      <div class="directory-grid">
+        <article class="lab-card directory-card">
+          <p class="card-label">Current Members</p>
+          <h3>研究室メンバー</h3>
+          <p class="card-action"><a href="./members/index.html">メンバー一覧を見る</a></p>
+        </article>
+
+        <article class="lab-card directory-card">
+          <p class="card-label">Former Members</p>
+          <h3>過去のメンバー</h3>
+          <p class="card-action"><a href="./alumni/index.html">過去のメンバーを見る</a></p>
+        </article>
       </div>
     </section>
   </main>
