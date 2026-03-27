@@ -50,16 +50,48 @@
 
       <div class="lab-grid">
         <article class="lab-card intro-card">
-          <p class="card-label">Research Keywords</p>
+          <p class="card-label">Research Themes</p>
           <p class="intro-copy">
-            計算複雑さ理論を中心に，学習理論・暗号理論へとつながる問いも扱います．
+            計算複雑さ理論を中心に，学習理論・暗号理論へとつながる根源的な問いも扱います．
           </p>
 
-          <ol class="keyword-list">
-            <li><span class="term-no">01</span><span>計算複雑さ理論</span></li>
-            <li><span class="term-no">02</span><span>計算論的学習理論</span></li>
-            <li><span class="term-no">03</span><span>メタ計算量理論</span></li>
-            <li><span class="term-no">04</span><span>暗号理論</span></li>
+          <ol class="keyword-list" aria-label="研究テーマ一覧">
+            <li class="keyword-item" data-question="解ける世界の，境界はどこか。">
+              <button class="keyword-trigger" type="button" aria-label="計算複雑さ理論 — 解ける世界の，境界はどこか。">
+                <span class="term-no" aria-hidden="true">01</span>
+                <span class="keyword-item-copy">
+                  <span class="keyword-title">計算複雑さ理論</span>
+                  <span class="keyword-question keyword-question-inline" aria-hidden="true"><span class="keyword-question-label">問い</span><span class="keyword-question-text">限られた計算資源で、どこまで解けるか？</span></span>
+                </span>
+              </button>
+            </li>
+            <li class="keyword-item" data-question="機械は，どこまで学びきれるのか。">
+              <button class="keyword-trigger" type="button" aria-label="計算論的学習理論 — 機械は，どこまで学びきれるのか。">
+                <span class="term-no" aria-hidden="true">02</span>
+                <span class="keyword-item-copy">
+                  <span class="keyword-title">計算論的学習理論</span>
+                  <span class="keyword-question keyword-question-inline" aria-hidden="true"><span class="keyword-question-label">問い</span><span class="keyword-question-text">機械は、どこまで複雑な規則を学べるか？</span></span>
+                </span>
+              </button>
+            </li>
+            <li class="keyword-item" data-question="複雑さは，自分で自分を測れるか。">
+              <button class="keyword-trigger" type="button" aria-label="メタ計算量理論 — 複雑さは，自分で自分を測れるか。">
+                <span class="term-no" aria-hidden="true">03</span>
+                <span class="keyword-item-copy">
+                  <span class="keyword-title">メタ計算量理論</span>
+                  <span class="keyword-question keyword-question-inline" aria-hidden="true"><span class="keyword-question-label">問い</span><span class="keyword-question-text">難しさを知ることは、どれほど難しいか？</span></span>
+                </span>
+              </button>
+            </li>
+            <li class="keyword-item" data-question="難しさは，どう秘密を守る力になるのか。">
+              <button class="keyword-trigger" type="button" aria-label="暗号理論 — 難しさは，どう秘密を守る力になるのか。">
+                <span class="term-no" aria-hidden="true">04</span>
+                <span class="keyword-item-copy">
+                  <span class="keyword-title">暗号理論</span>
+                  <span class="keyword-question keyword-question-inline" aria-hidden="true"><span class="keyword-question-label">問い</span><span class="keyword-question-text">どんな難しさが、秘密を守る力になるか？</span></span>
+                </span>
+              </button>
+            </li>
           </ol>
         </article>
 
@@ -95,6 +127,7 @@
     <p class="footer-note">Nanashima Laboratory — under construction.</p>
   </footer>
 
+  <script defer src="../assets/lab.js"></script>
   <script defer src="../assets/site.js"></script>
 </body>
 </html>
