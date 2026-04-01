@@ -40,6 +40,7 @@
     <a class="lab-nav-link is-current" href="./index.html" data-nav-no="01" aria-current="page">研究室トップ</a>
     <a class="lab-nav-link" href="./members/index.html" data-nav-no="02">メンバー</a>
     <a class="lab-nav-link" href="./alumni/index.html" data-nav-no="03">過去のメンバー</a>
+    <a class="lab-nav-link" href="./information/index.html" data-nav-no="04">お知らせ</a>
   </nav>
 
   <main class="page-shell">
@@ -95,13 +96,32 @@
           </ol>
         </article>
 
-        <aside class="lab-card notice-card">
-          <span class="vertical-note" aria-hidden="true">準備中</span>
-          <p class="card-label">Information</p>
-          <h3>このページは工事中です．</h3>
-          <p>詳細な情報は今後順次追加していきます．</p>
-          <p class="back-link"><a href="../index.html">教員個人ページへのリンク</a></p>
-        </aside>
+        <div class="notice-column">
+          <aside class="lab-card notice-card notice-card-rotating" data-notice-rotator data-notice-interval="6400">
+            <span class="vertical-note" aria-hidden="true">FEATURED</span>
+            <p class="card-label">Information</p>
+
+            <div class="notice-stack" data-notice-stage role="region" aria-label="注目のお知らせ" tabindex="0">
+              <p class="notice-meta">
+                <span class="notice-kind" data-notice-kind>案内</span>
+                <time class="notice-date" data-notice-date datetime="2026-03-27">2026.03.27</time>
+              </p>
+              <h3 class="notice-title" data-notice-title>2026年5月の立ち上げに向けて準備を進めています。</h3>
+              <p class="notice-summary" data-notice-summary>研究室の立ち上げにあわせて，配属や運営に関する案内も順次追加していく予定です．</p>
+            </div>
+
+            <div class="notice-switcher-wrap">
+              <div class="notice-switcher" data-notice-switcher aria-label="選択されたお知らせ"></div>
+              <p class="notice-scroll-hint" data-notice-scroll-hint aria-hidden="true">
+                <span class="notice-scroll-prefix">スクロールで</span>
+                <span class="notice-scroll-arrow" aria-hidden="true">↓</span>
+                <span class="notice-scroll-suffix">下へ</span>
+              </p>
+            </div>
+          </aside>
+
+          <p class="notice-archive-button"><a href="./information/index.html">お知らせ一覧へ</a></p>
+        </div>
       </div>
     </section>
 
@@ -127,6 +147,7 @@
     <p class="footer-note">Nanashima Laboratory — under construction.</p>
   </footer>
 
+  <script defer src="../assets/lab-information.js"></script>
   <script defer src="../assets/lab.js"></script>
   <script defer src="../assets/site.js"></script>
 </body>

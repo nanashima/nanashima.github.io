@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>お知らせ一覧 | 七島研究室</title>
+  <meta name="description" content="七島研究室のお知らせ一覧です。" />
+  <meta name="color-scheme" content="light" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;600;700&family=Shippori+Mincho+B1:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <link rel="stylesheet" href="../../assets/lab.css" />
+</head>
+
+<body class="lab-page lab-directory-page lab-information-page">
+  <div class="site-bg" aria-hidden="true"></div>
+
+  <header class="site-header lab-hero">
+    <div class="header-panel lab-header-panel">
+      <div class="hero-copy">
+        <p class="page-kicker">Nanashima Lab.</p>
+        <h1><span lang="ja">お知らせ一覧</span></h1>
+        <p class="page-lead">
+          研究室に関する告知やお知らせの一覧・記録です．<br />
+        </p>
+      </div>
+
+      <aside class="hero-folio" aria-hidden="true">
+        <span class="hero-folio-label">INFORMATION</span>
+        <span class="hero-folio-no">04</span>
+      </aside>
+    </div>
+  </header>
+
+  <nav class="lab-local-nav" aria-label="研究室ページ内ナビゲーション">
+    <a class="lab-nav-link" href="../index.html" data-nav-no="01">研究室トップ</a>
+    <a class="lab-nav-link" href="../members/index.html" data-nav-no="02">メンバー</a>
+    <a class="lab-nav-link" href="../alumni/index.html" data-nav-no="03">過去のメンバー</a>
+    <a class="lab-nav-link is-current" href="./index.html" data-nav-no="04" aria-current="page">お知らせ</a>
+  </nav>
+
+  <main class="page-shell">
+    <section class="section lab-section" id="information-archive">
+      <div class="section-heading">
+        <h2> お知らせ一覧</h2>
+      </div>
+
+      <div class="notice-archive-grid" data-notice-archive></div>
+
+      <noscript>
+        <p class="section-intro">JavaScript を有効にすると，お知らせ一覧が表示されます．</p>
+      </noscript>
+    </section>
+  </main>
+
+  <footer class="lab-footer">
+    <p class="footer-note">Nanashima Laboratory — information.</p>
+  </footer>
+
+  <script defer src="../../assets/lab-information.js"></script>
+  <script defer src="../../assets/lab.js"></script>
+  <script defer src="../../assets/site.js"></script>
+</body>
+</html>
